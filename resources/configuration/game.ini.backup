@@ -1,0 +1,11 @@
+# This is a comment. 
+# Blank lines are ignored
+# ChArAcTeR sIzE iS nOt ImPoRtAnT :)
+# 1 is True, 0 is False
+# You can find default options in default.ini
+# All possible options are: width, height, endinglevel, gamefolder, startinglevel, widthcheck, heightcheck, fps, gravitation, twoplayer, showfps, balldebug, dirty, caption, backgroundcount, fullscreen
+
+showfps = 0
+twoplayer = 1
+caption = Testirejmo mal kaj dogaja :D
+fullscreen = 1
