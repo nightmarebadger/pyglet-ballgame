@@ -1,6 +1,7 @@
 import pyglet
 from . import resources
 from .screen import *
+from .lists import *
 from random import randint, choice
 
 class Ball(pyglet.sprite.Sprite):
@@ -14,7 +15,7 @@ class Ball(pyglet.sprite.Sprite):
         elif(colour == 'gold'):
             img = resources.ball_gold
             
-        super().__init__(img = img, *args, **kwargs)
+        super().__init__(*args, img = img, batch = ball_batch, **kwargs)
         
         if(size):
             self.scale = size/self.width

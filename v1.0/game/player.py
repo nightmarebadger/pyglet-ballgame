@@ -1,12 +1,13 @@
 import pyglet
 from pyglet.window import key
 from .screen import *
+from .lists import *
 from . import resources
 
 
 class Player(pyglet.sprite.Sprite):
     def __init__(self, *args, **kwargs):
-        super().__init__(img = resources.player1_normal, *args, **kwargs)
+        super().__init__(*args, img = resources.player1_normal, batch = player_batch, **kwargs)
         
         #self.image = 
         self.x = game_window.width/2 - self.width/2
