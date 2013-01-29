@@ -1,0 +1,8 @@
+.*
+!.gitignore
+*.pyc
+*.class
+*.pyo
+*.lvl
+resources/*
+*.png
