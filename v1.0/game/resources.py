@@ -1,5 +1,8 @@
 import pyglet
 
+def center(img):
+    img.anchor_x = img.width/2
+    img.anchor_y = img.height/2
 
 #===============================================================================
 # PLAYER IMAGES
@@ -29,6 +32,11 @@ ball_blue = pyglet.resource.image("blue.png")
 ball_gold = pyglet.resource.image("gold.png")
 ball_green = pyglet.resource.image("green.png")
 ball_red = pyglet.resource.image("red.png")
+
+center(ball_blue)
+center(ball_gold)
+center(ball_green)
+center(ball_red)
 
 #===============================================================================
 # BACKGROUND IMAGES
