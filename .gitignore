@@ -3,6 +3,5 @@
 *.pyc
 *.class
 *.pyo
-*.lvl
 resources/*
-*.png
+!resources/levels/*
