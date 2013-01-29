@@ -3,5 +3,5 @@
 *.pyc
 *.class
 *.pyo
-resources/*
-!resources/levels/*
+resources/
+!resources/levels/
