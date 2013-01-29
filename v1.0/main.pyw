@@ -6,6 +6,7 @@ from game import player
 @game_window.event
 def on_draw():
     game_window.clear()
+    background.draw()
     ply.draw()
     
     
