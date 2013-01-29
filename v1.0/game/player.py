@@ -20,6 +20,7 @@ class Player(pyglet.sprite.Sprite):
         self.keys()
         self.changeImg()
         self.move(dt)
+        self.checkBounds()
         
     def move(self, dt):
         self.x += self.vx * dt
@@ -38,4 +39,10 @@ class Player(pyglet.sprite.Sprite):
             self.image = resources.player1_right
         elif(self.vx == 0):
             self.image = resources.player1_normal
+            
+    def checkBounds(self):
+        if(self.x < 0):
+            self.x = 0
+        elif(self.x + self.width > game_window.width):
+            self.x = game_window.width - self.width
         
