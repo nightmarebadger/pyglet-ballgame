@@ -47,4 +47,9 @@ class Ball(pyglet.sprite.Sprite):
 
         if(self.y - self.height/2 < window_bottom or self.y + self.height/2 > game_window.height):
             self.vy *= -1
+    
+    def destroy(self):
+        ball_list.remove(self)
         
+    def hit(self):
+        self.destroy()

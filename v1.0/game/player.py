@@ -47,12 +47,16 @@ class Player(pyglet.sprite.Sprite):
         elif(self.x + self.width > game_window.width):
             self.x = game_window.width - self.width
             
-    def collision(self, other):
+    def collision_rect(self, other):
         #=======================================================================
         # A simple rectangle collision
         #=======================================================================
         if(self.x <= other.x + other.width/2 and self.x + self.width >= other.x - other.width/2):
             if(self.y <= other.y + other.height/2 and self.y + self.height >= other.y - other.height/2):
-                print("Collision detected!")
-        
+                other.hit()
+                self.hit()
+    
+    def hit(self):
+        pass
+    
         
