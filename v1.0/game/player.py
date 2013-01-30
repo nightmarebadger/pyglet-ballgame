@@ -86,7 +86,5 @@ class Player(pyglet.sprite.Sprite):
     
     def stopShoot(self):
         if(self.arrow):
-            print("Delam")
             self.arrow.destroy()
-            self.arrow = None
         

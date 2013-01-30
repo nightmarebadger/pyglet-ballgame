@@ -28,8 +28,11 @@ class Arrow(pyglet.sprite.Sprite):
     
     def update(self, dt):
         self._height += self.speed * dt
+        self.checkBounds()
     
     def destroy(self):
+        if(self.player.arrow == self):
+            self.player.arrow = None
         arrow_list.remove(self)
         
     def draw(self):
@@ -42,4 +45,8 @@ class Arrow(pyglet.sprite.Sprite):
                  self.player.x + self.player.width//2 + self._width//2, self.player.y + self.player.height + self._height,
                  self.player.x + self.player.width//2 + self._width//2, self.player.y + self.player.height))
         )
+    
+    def checkBounds(self):
+        if(self.player.y + self.player.height + self._height > game_window.height):
+            self.destroy()
     
