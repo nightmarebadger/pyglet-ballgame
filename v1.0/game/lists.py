@@ -7,4 +7,4 @@ player_batch = pyglet.graphics.Batch()
 ball_list = []
 ball_batch = pyglet.graphics.Batch()
 
-
+gravity = 100
