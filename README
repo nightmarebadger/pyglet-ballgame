@@ -1,1 +1,8 @@
-And now... in pyglet! :)
+The Ballgame I first made as a school project using Tkinter, which I later migrated
+to Pygame, now in Pyglet as an excercise. 
+
+It's a simple game with (when I implement it :P) two player support, where you move left/right
+and try to shoot down the colored balls, which can split into more smaller balls on hit. 
+
+Heavily inspired by an old DOS game by the name of Ball (I think, can't remember, I know it had
+some Chinese/Japanese letters in the title image somewhere ... )

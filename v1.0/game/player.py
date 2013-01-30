@@ -6,14 +6,14 @@ from . import resources
 
 
 class Player(pyglet.sprite.Sprite):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, speed = 300, **kwargs):
         super().__init__(*args, img = resources.player1_normal, batch = player_batch, **kwargs)
         
         #self.image = 
         self.x = game_window.width/2 - self.width/2
         self.y = window_bottom
         
-        self.speed = 300
+        self.speed = speed
         self.vx = 0
         self.key_handler = key.KeyStateHandler()
         
