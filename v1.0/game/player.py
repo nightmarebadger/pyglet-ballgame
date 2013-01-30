@@ -2,7 +2,7 @@ import pyglet
 from pyglet.window import key
 from .screen import *
 from .lists import *
-from . import resources
+from . import resources, arrow
 
 
 class Player(pyglet.sprite.Sprite):
@@ -37,10 +37,14 @@ class Player(pyglet.sprite.Sprite):
             
     def keys(self):
         self.vx = 0
-        self.shooting = False
         if(self.key_handler[key.SPACE]):
-            self.shooting = True
-            self.shoot()
+            if(not self.shooting):
+                self.shooting = True
+                self.shoot()
+        else:
+            if(self.shooting):
+                self.shooting = False
+                self.stopShoot()
             
         if(not self.shooting):
             if(self.key_handler[key.LEFT]):
@@ -78,6 +82,12 @@ class Player(pyglet.sprite.Sprite):
         pass
     
     def shoot(self):
-        pass
+        self.arrow = arrow.Arrow(player = self)
+        arrow_list.append(self.arrow)
     
+    def stopShoot(self):
+        if(self.arrow):
+            print("Delam")
+            self.arrow.destroy()
+            self.arrow = None
         

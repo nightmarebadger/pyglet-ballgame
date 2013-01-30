@@ -5,13 +5,13 @@ from . import resources
 from pyglet import gl
 
 class Arrow(pyglet.sprite.Sprite):
-    def __init__(self, *args, player, speed = 100, **kwargs):
+    def __init__(self, *args, player, speed = 300, **kwargs):
         super().__init__(*args, img = resources.ost1, batch = arrow_batch, **kwargs)
         
         self.speed = speed
         self.player = player
         self._width = 5
-        self._height = 100
+        self._height = 1
     
         
     def collision_rect(self, other):
@@ -27,10 +27,9 @@ class Arrow(pyglet.sprite.Sprite):
         pass
     
     def update(self, dt):
-        pass
+        self._height += self.speed * dt
     
     def destroy(self):
-        self.player.arrow = None
         arrow_list.remove(self)
         
     def draw(self):

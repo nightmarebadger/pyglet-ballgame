@@ -7,11 +7,12 @@ from pyglet import gl
 
 @game_window.event
 def on_draw():
+    print(arrow_list)
     game_window.clear()
     background.draw()
     player_batch.draw()
     ball_batch.draw()
-    arrow_batch.draw()
+    #arrow_batch.draw()
     for i in arrow_list:
       i.draw()
     fps_display.draw()
@@ -36,7 +37,7 @@ fps_display = pyglet.clock.ClockDisplay(format='%(fps).1f', color=(0.5, 0.5, 0.5
 
 #ball_list.append(ball.Ball(colour = "red", x = 200, y = 200, size = 100, split_times = 1, split_into = 12))
 
-arrow_list.append(arrow.Arrow(player = player_list[-1]))
+
 
 if(__name__ == '__main__'):
   pyglet.clock.schedule_interval(update, 1/120)
