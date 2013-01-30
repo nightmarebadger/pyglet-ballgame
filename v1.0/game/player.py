@@ -17,6 +17,8 @@ class Player(pyglet.sprite.Sprite):
         self.vx = 0
         self.key_handler = key.KeyStateHandler()
         
+        self.shooting = False
+        
     def update(self, dt):
         self.keys()
         self.changeImg()
@@ -28,18 +30,27 @@ class Player(pyglet.sprite.Sprite):
             
     def keys(self):
         self.vx = 0
-        if(self.key_handler[key.LEFT]):
-            self.vx -= self.speed
-        if(self.key_handler[key.RIGHT]):
-            self.vx += self.speed
+        self.shooting = False
+        if(self.key_handler[key.SPACE]):
+            self.shooting = True
+            self.shoot()
+            
+        if(not self.shooting):
+            if(self.key_handler[key.LEFT]):
+                self.vx -= self.speed
+            if(self.key_handler[key.RIGHT]):
+                self.vx += self.speed
     
     def changeImg(self):
-        if(self.vx < 0):
-            self.image = resources.player1_left
-        elif(self.vx > 0):
-            self.image = resources.player1_right
-        elif(self.vx == 0):
-            self.image = resources.player1_normal
+        if(self.shooting):
+            self.image = resources.player1_shooting
+        else:
+            if(self.vx < 0):
+                self.image = resources.player1_left
+            elif(self.vx > 0):
+                self.image = resources.player1_right
+            elif(self.vx == 0):
+                self.image = resources.player1_normal
             
     def checkBounds(self):
         if(self.x < 0):
@@ -57,6 +68,9 @@ class Player(pyglet.sprite.Sprite):
                 self.hit()
     
     def hit(self):
+        pass
+    
+    def shoot(self):
         pass
     
         
