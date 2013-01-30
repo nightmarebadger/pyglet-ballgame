@@ -1,8 +1,10 @@
 import pyglet
 from pyglet.window import key
+from game import globals
 from .screen import *
 from .lists import *
 from . import resources, arrow
+from time import sleep
 
 
 class Player(pyglet.sprite.Sprite):
@@ -34,7 +36,17 @@ class Player(pyglet.sprite.Sprite):
         
     def move(self, dt):
         self.x += self.vx * dt
-            
+    
+    def on_key_press(self, symbol, modifiers):
+        if(symbol == key.P):
+            #===================================================================
+            # if(globals.game_paused):
+            #    # Take 3 seconds to unpause or sth
+            #===================================================================
+            globals.game_paused = not globals.game_paused
+             
+
+                                
     def keys(self):
         self.vx = 0
         if(self.key_handler[key.SPACE]):
