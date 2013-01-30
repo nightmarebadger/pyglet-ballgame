@@ -24,8 +24,8 @@ def update(dt):
         ply.update(dt)
     for ball in ball_list:
         ball.update(dt)
-        for ply in player_list:
-            ply.collision_rect(ball)
+        for arrow in arrow_list:
+           arrow.collision_rect(ball)
     for arrow in arrow_list:
         arrow.update(dt)
 
