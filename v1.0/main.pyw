@@ -24,6 +24,8 @@ def update(dt):
         ply.update(dt)
     for ball in ball_list:
         ball.update(dt)
+        for ply in player_list:
+            ply.collision_rect(ball)
         for arrow in arrow_list:
            arrow.collision_rect(ball)
     for arrow in arrow_list:
@@ -32,7 +34,7 @@ def update(dt):
 
 player_list.append(player.Player())
 game_window.push_handlers(player_list[-1].key_handler)
-utility.addBalls(10)
+utility.addBalls(3)
 
 fps_display = pyglet.clock.ClockDisplay(format='%(fps).1f', color=(0.5, 0.5, 0.5, 1))
 

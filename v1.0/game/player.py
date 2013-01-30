@@ -77,7 +77,10 @@ class Player(pyglet.sprite.Sprite):
                 self.hit()
     
     def hit(self):
-        pass
+        self.destroy()
+        
+    def destroy(self):
+        player_list.remove(self)
     
     def shoot(self):
         if(not self.arrow):

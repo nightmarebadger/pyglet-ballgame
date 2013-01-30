@@ -36,7 +36,7 @@ class Ball(pyglet.sprite.Sprite):
             self.vy = vy
             
         if(not rot):
-            self.rot = randint(10,30) * choice([-1, 1]) 
+            self.rot = randint(100,200) * choice([-1, 1]) 
         else:
             self.rot = rot
             
@@ -55,16 +55,20 @@ class Ball(pyglet.sprite.Sprite):
         if(self.x - self.width/2 < 0):
             self.x = self.width/2
             self.vx *= -1
+            self.rot *= -1
         if(self.x + self.width/2 > game_window.width):
             self.x = game_window.width - self.width/2
             self.vx *= -1
+            self.rot *= -1
 
         if(self.y - self.height/2 < window_bottom):
             self.y = window_bottom + self.height/2
             self.vy *= -1
+            self.rot *= -1
         if(self.y + self.height/2 > game_window.height):
             self.y = game_window.height - self.height/2
             self.vy *= -1
+            self.rot *= -1
     
     def destroy(self):
         ball_list.remove(self)
