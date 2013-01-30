@@ -77,4 +77,4 @@ class Ball(pyglet.sprite.Sprite):
     def split(self):
         if(self.split_times >= 0):
             for i in range(self.split_into):
-                ball_list.append(Ball(colour=self.colour, x = self.x + randint(-self.width//2, self.width//2), y = self.y + randint(-self.height//2, self.height//2), size = self.size/2, vx = self.vx + randint(min(-self.vx//2, self.vx//2), max(-self.vx//2, self.vx//2)), vy = self.vy + randint(min(-self.vy//2, self.vy//2), max(-self.vy//2, self.vy//2)), split_into = self.split_into, split_times = self.split_times - 1))
+                ball_list.append(Ball(colour=self.colour, x = self.x + randint(-self.width//2, self.width//2), y = self.y + randint(-self.height//2, self.height//2), size = self.size/(2)**(1/2), vx = self.vx + randint(min(-self.vx//2, self.vx//2), max(-self.vx//2, self.vx//2)), vy = self.vy + randint(min(-self.vy//2, self.vy//2), max(-self.vy//2, self.vy//2)), split_into = self.split_into, split_times = self.split_times - 1))

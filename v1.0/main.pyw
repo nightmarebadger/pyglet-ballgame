@@ -27,7 +27,7 @@ def update(dt):
 
 player_list.append(player.Player())
 game_window.push_handlers(player_list[-1].key_handler)
-#utility.addBalls(400)
+utility.addBalls(10)
 
 fps_display = pyglet.clock.ClockDisplay(format='%(fps).1f', color=(0.5, 0.5, 0.5, 1))
 
