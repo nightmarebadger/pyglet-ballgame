@@ -1,13 +1,17 @@
 import pyglet
 from .lists import *
 from .screen import *
+from . import resources
+from pyglet import gl
 
 class Arrow(pyglet.sprite.Sprite):
-    def __init__(self, *args, player, speed = 100, **kwargs)
-        super().__init__(*args, batch = arrow_batch, **kwargs)
+    def __init__(self, *args, player, speed = 100, **kwargs):
+        super().__init__(*args, img = resources.ost1, batch = arrow_batch, **kwargs)
         
         self.speed = speed
         self.player = player
+        self._width = 5
+        self._height = 100
     
         
     def collision_rect(self, other):
@@ -28,4 +32,15 @@ class Arrow(pyglet.sprite.Sprite):
     def destroy(self):
         self.player.arrow = None
         arrow_list.remove(self)
+        
+    def draw(self):
+        gl.glColor3f(0,0,0)
+        
+        pyglet.graphics.draw_indexed(4, pyglet.gl.GL_TRIANGLES,
+        [0, 1, 2, 0, 2, 3],
+        ('v2f', (self.player.x + self.player.width//2 - self._width//2, self.player.y + self.player.height,
+                 self.player.x + self.player.width//2 - self._width//2, self.player.y + self.player.height + self._height,
+                 self.player.x + self.player.width//2 + self._width//2, self.player.y + self.player.height + self._height,
+                 self.player.x + self.player.width//2 + self._width//2, self.player.y + self.player.height))
+        )
     

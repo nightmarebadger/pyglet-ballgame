@@ -21,6 +21,9 @@ player2_normal = pyglet.resource.image("ply2n.png")
 player2_right = pyglet.resource.image("ply2r.png")
 player2_shooting = pyglet.resource.image("ply2s.png")
 
+
+ost1 = pyglet.resource.image("Ost_Black-01.png")
+
 #===============================================================================
 # BALL IMAGES
 #===============================================================================
