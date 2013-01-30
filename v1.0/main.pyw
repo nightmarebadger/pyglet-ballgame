@@ -10,6 +10,7 @@ def on_draw():
     background.draw()
     player_batch.draw()
     ball_batch.draw()
+    arrow_batch.draw()
     fps_display.draw()
     
     
@@ -20,6 +21,8 @@ def update(dt):
         ball.update(dt)
         for ply in player_list:
             ply.collision_rect(ball)
+    for arrow in arrow_list:
+        arrow.update(dt)
 
 
 player_list.append(player.Player())
@@ -28,7 +31,7 @@ game_window.push_handlers(player_list[-1].key_handler)
 
 fps_display = pyglet.clock.ClockDisplay(format='%(fps).1f', color=(0.5, 0.5, 0.5, 1))
 
-ball_list.append(ball.Ball(colour = "red", x = 200, y = 200, size = 100, split_times = 1, split_into = 12))
+#ball_list.append(ball.Ball(colour = "red", x = 200, y = 200, size = 100, split_times = 1, split_into = 12))
 
 if(__name__ == '__main__'):
   pyglet.clock.schedule_interval(update, 1/120)

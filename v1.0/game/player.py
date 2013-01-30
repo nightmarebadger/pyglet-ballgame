@@ -19,6 +19,13 @@ class Player(pyglet.sprite.Sprite):
         
         self.shooting = False
         
+        self.arrow = None
+        
+    def draw(self):
+        self.draw()
+        if(self.arrow):
+            self.arrow.draw()
+        
     def update(self, dt):
         self.keys()
         self.changeImg()
