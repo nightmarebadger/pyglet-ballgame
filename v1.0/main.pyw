@@ -13,7 +13,6 @@ def on_draw():
         game_over_text.draw()
         return
     if(globals.game_won):
-        print("Gamuh is won!")
         game_won_text.draw() 
         return
     if(globals.game_paused):
@@ -54,7 +53,7 @@ def update(dt):
 player_list.append(player.Player())
 game_window.push_handlers(player_list[-1].key_handler)
 game_window.push_handlers(player_list[-1])
-utility.addBalls(1)
+utility.addBalls(3)
 
 fps_display = pyglet.clock.ClockDisplay(format='%(fps).1f', color=(0.5, 0.5, 0.5, 1))
 
