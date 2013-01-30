@@ -38,13 +38,11 @@ class Player(pyglet.sprite.Sprite):
     def keys(self):
         self.vx = 0
         if(self.key_handler[key.SPACE]):
-            if(not self.shooting):
-                self.shooting = True
-                self.shoot()
+            self.shooting = True
+            self.shoot()
         else:
-            if(self.shooting):
-                self.shooting = False
-                self.stopShoot()
+            self.shooting = False
+            self.stopShoot()
             
         if(not self.shooting):
             if(self.key_handler[key.LEFT]):
@@ -82,8 +80,9 @@ class Player(pyglet.sprite.Sprite):
         pass
     
     def shoot(self):
-        self.arrow = arrow.Arrow(player = self)
-        arrow_list.append(self.arrow)
+        if(not self.arrow):
+            self.arrow = arrow.Arrow(player = self)
+            arrow_list.append(self.arrow)
     
     def stopShoot(self):
         if(self.arrow):

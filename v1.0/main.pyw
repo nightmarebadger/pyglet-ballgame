@@ -7,12 +7,13 @@ from pyglet import gl
 
 @game_window.event
 def on_draw():
-    print(arrow_list)
     game_window.clear()
     background.draw()
     player_batch.draw()
     ball_batch.draw()
-    #arrow_batch.draw()
+    #===========================================================================
+    # arrow_batch.draw()
+    #===========================================================================
     for i in arrow_list:
       i.draw()
     fps_display.draw()
