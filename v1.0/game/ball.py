@@ -52,10 +52,18 @@ class Ball(pyglet.sprite.Sprite):
         self.checkBounds()
         
     def checkBounds(self):
-        if(self.x - self.width/2 < 0 or self.x + self.width/2 > game_window.width):
+        if(self.x - self.width/2 < 0):
+            self.x = self.width/2
+            self.vx *= -1
+        if(self.x + self.width/2 > game_window.width):
+            self.x = game_window.width - self.width/2
             self.vx *= -1
 
-        if(self.y - self.height/2 < window_bottom or self.y + self.height/2 > game_window.height):
+        if(self.y - self.height/2 < window_bottom):
+            self.y = window_bottom + self.height/2
+            self.vy *= -1
+        if(self.y + self.height/2 > game_window.height):
+            self.y = game_window.height - self.height/2
             self.vy *= -1
     
     def destroy(self):
